@@ -5,11 +5,14 @@ import { act } from "react";
 // Define a more specific mock response interface
 interface MockResponse {
 	json: () => Promise<Array<{ name: string }>>;
-	// Add any other properties that might be used from the Response
-	ok?: boolean;
-	status?: number;
-	statusText?: string;
 }
+
+// Mock user data that can be reused
+const mockUsers = [
+	{ name: "Humaid Koresi" },
+	{ name: "Shahriar Sun" },
+	{ name: "Rakib Hossain" },
+];
 
 describe("User component", () => {
 	// Create a resolvable promise with our specific type
@@ -20,12 +23,11 @@ describe("User component", () => {
 		jest.clearAllMocks();
 
 		// Mock fetch with a promise we can resolve manually
-		global.fetch = jest.fn().mockImplementation(() =>
-			new Promise((resolve) => {
-				resolvePromise = resolve;
-			}).then(() => ({
-				json: () => Promise.resolve([{ name: "Test User" }]),
-			}))
+		global.fetch = jest.fn().mockImplementation(
+			() =>
+				new Promise((resolve) => {
+					resolvePromise = resolve;
+				})
 		);
 	});
 
@@ -47,13 +49,15 @@ describe("User component", () => {
 		await act(async () => {
 			// Resolve the fetch promise with a mock response object
 			resolvePromise({
-				json: () => Promise.resolve([{ name: "Test User" }]),
+				json: () => Promise.resolve(mockUsers),
 			});
 		});
 
 		// Wait for the data to appear
 		await waitFor(() => {
-			expect(screen.getByText("Test User")).toBeInTheDocument();
+			expect(screen.getByText("Rakib Hossain")).toBeInTheDocument();
+			const listItemLength = screen.getAllByRole("listitem").length;
+			expect(listItemLength).toBe(3);
 		});
 
 		// Verify fetch was called correctly
