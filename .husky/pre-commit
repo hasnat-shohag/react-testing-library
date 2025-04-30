@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Use full path to yarn executable
+/usr/local/nodejs/bin/yarn lint && /usr/local/nodejs/bin/yarn format

@@ -68,7 +68,7 @@ describe("User component", () => {
 
   test("disables button when loading", () => {
     render(<User />);
-    const button = screen.getByRole("button", { name: /click here/i });
+    const button = screen.getByText(/click here/i);
     expect(button).toBeDisabled();
   });
 });
