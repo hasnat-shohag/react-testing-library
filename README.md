@@ -41,14 +41,14 @@ The `debug()` function prints the current DOM structure to the console, making i
 import { render, screen } from "@testing-library/react";
 
 test("using debug", () => {
-	render(<MyComponent />);
+  render(<MyComponent />);
 
-	// Prints the entire rendered DOM
-	screen.debug();
+  // Prints the entire rendered DOM
+  screen.debug();
 
-	// Prints a specific element
-	const button = screen.getByRole("button");
-	screen.debug(button);
+  // Prints a specific element
+  const button = screen.getByRole("button");
+  screen.debug(button);
 });
 ```
 
@@ -66,16 +66,16 @@ import { render } from "@testing-library/react";
 import { logRoles } from "@testing-library/dom";
 
 test("using logRoles", () => {
-	const { container } = render(<MyComponent />);
+  const { container } = render(<MyComponent />);
 
-	// Prints all roles in the component
-	logRoles(container);
+  // Prints all roles in the component
+  logRoles(container);
 
-	// Output example:
-	// button:
-	//   Name "Submit": <button>Submit</button>
-	// heading:
-	//   Name "Welcome": <h1>Welcome</h1>
+  // Output example:
+  // button:
+  //   Name "Submit": <button>Submit</button>
+  // heading:
+  //   Name "Welcome": <h1>Welcome</h1>
 });
 ```
 
