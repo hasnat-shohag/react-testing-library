@@ -39,5 +39,5 @@ export default tseslint.config(
       "@typescript-eslint/no-explicit-any": "off", // Disable for test files
       "@typescript-eslint/ban-ts-comment": "off", // Allow ts-ignore in tests
     },
-  },
+  }
 );

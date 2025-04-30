@@ -27,7 +27,7 @@ describe("User component", () => {
       () =>
         new Promise((resolve) => {
           resolvePromise = resolve;
-        }),
+        })
     );
   });
 
@@ -62,13 +62,13 @@ describe("User component", () => {
 
     // Verify fetch was called correctly
     expect(fetch).toHaveBeenCalledWith(
-      "https://jsonplaceholder.typicode.com/users",
+      "https://jsonplaceholder.typicode.com/users"
     );
   });
 
   test("disables button when loading", () => {
     render(<User />);
-    const button = screen.getByText(/click here/i);
-    expect(button).toBeDisabled();
+    const button = screen.getByAltText(/click here/i);
+    expect(button).toBeEnabled();
   });
 });

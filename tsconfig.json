@@ -1,12 +1,12 @@
 {
-	"files": [],
-	"references": [
-		{ "path": "./tsconfig.app.json" },
-		{ "path": "./tsconfig.node.json" }
-	],
-	// how can i allow any type in tsconfig.json
-	"compilerOptions": {
-		"noImplicitAny": false,
-		"strict": false
-	}
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  // how can i allow any type in tsconfig.json
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "strict": false
+  }
 }
